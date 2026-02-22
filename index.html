@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KAIST 2026 봄학기 시간표 플래너</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">KAIST 2026 봄학기</p>
+        <h1>시간표 플래너</h1>
+      </div>
+      <div class="toolbar">
+        <label class="search-wrap" for="searchInput">
+          <span>검색</span>
+          <input id="searchInput" type="search" placeholder="과목번호, 과목명, 교수명, 학과, 정원/수강 (퍼지 검색)">
+        </label>
+        <label class="toggle-chip" for="overlapToggle">
+          <input id="overlapToggle" type="checkbox">
+          <span>겹침 강조</span>
+        </label>
+        <button id="resetBtn" class="ghost-btn" type="button">선택 초기화</button>
+      </div>
+    </header>
+
+    <section class="status-row">
+      <p id="summaryText">데이터를 불러오는 중...</p>
+      <p id="resultText"></p>
+    </section>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="panel-head">
+          <h2>과목 목록</h2>
+        </div>
+        <ul id="courseList" class="course-list" aria-live="polite"></ul>
+      </section>
+
+      <section class="panel planner-panel">
+        <div class="panel-head">
+          <h2>선택 과목</h2>
+          <p id="conflictText" class="conflict-text"></p>
+        </div>
+        <ul id="selectedList" class="selected-list"></ul>
+
+        <div class="grid-wrap">
+          <div id="timetableGrid" class="timetable-grid" role="grid" aria-label="주간 시간표"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
